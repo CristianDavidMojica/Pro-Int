@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {MatFormFieldModule} from '@angular/material/form-field';
+import { MatFormFieldModule } from '@angular/material/form-field'
 import { FormBuilder, FormGroup, Validators } from '@angular/forms'
 
 enum FormField {
@@ -26,6 +26,7 @@ export class LoginComponent implements OnInit {
    }
 
   ngOnInit(): void {
+  
   }
 
   buildForm(): FormGroup {

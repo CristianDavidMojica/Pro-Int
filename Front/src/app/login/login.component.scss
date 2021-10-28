@@ -19,39 +19,4 @@
     border-radius: 10px;
   
     }
-  }
-  
-  .bar {
-    position:absolute;
-    top: 0;
-    left: 0;
-  }
-  :host{
-    box-sizing: border-box;
-  }
-  .login-button {
-    margin-top: 20px;
-    font-size: 150%;
-    padding: 10px;
-    width: 100%;
-  }
-  
-  .row {
-    margin-bottom: 15px;
-  }
-  
-  .card {
-    padding: 16px;
-    @media screen and (min-width: 800px) {
-    padding: 30px;
-    border-radius: 10px;
-  
-    }
-  }
-  
-  .bar {
-    position:absolute;
-    top: 0;
-    left: 0;
-  }
-    
+  }  
