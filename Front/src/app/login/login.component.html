@@ -1,4 +1,4 @@
-
+    
    <!DOCTYPE html>
    <html lang="en">
    <head>
@@ -11,16 +11,20 @@
    <body>
        <div>
          <h1 class="login">Login</h1>
-         <input class="inputs" type="text" placeholder="User">
-         <input class="inputs" type="text" placeholder="Password">
-         <a href="#" class="btn-neon" style="margin-top: 40px; margin-left:90px; margin-right: 40px;">
-            <span id="span1"></span>
-            <span id="span2"></span>
-            <span id="span3"></span>
-            <span id="span4"></span>
-            Enviar
-        </a>
-       </div>
-       
+         <form [formGroup]="form" novalidate>
+         <input class="inputs" type="text" placeholder="User" formControlName = "user">
+         <div *ngIf="(userField.invalid && userField.touched)">
+             <mat-hint *ngIf="userField.hasError('required')">Campo Requerido</mat-hint>
+        </div>
+         <input class="inputs" type="text" placeholder="Password" formControlName = "password">
+         <div *ngIf="(passwordField.invalid && passwordField.touched)">
+            <mat-hint *ngIf="passwordField.hasError('required')">Campo Requerido</mat-hint>
+        </div>    
+        </form>
+         <button mat-raised-button (click) = "login($event)">
+            Send
+        </button>
+        <p>¿ya te registraste? si no da click <a href="/register">aqui</a></p>
+    </div>
    </body>
    </html>

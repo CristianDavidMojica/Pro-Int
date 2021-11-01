@@ -13,6 +13,9 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {MatIconModule} from '@angular/material/icon';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatButtonModule} from '@angular/material/button';
+import { RegisterComponent } from './register/register.component';
+import { RegisterGroupComponent } from './register-group/register-group.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +24,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     HomeComponent,
     UserComponent,
     JuryComponent,
+    RegisterComponent,
+    RegisterGroupComponent,
     
   ],
   imports: [
@@ -31,7 +36,8 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
     ReactiveFormsModule,
     MatIconModule,
     MatTooltipModule,
-    MatProgressBarModule
+    MatProgressBarModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

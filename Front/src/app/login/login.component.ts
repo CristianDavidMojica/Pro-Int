@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { MatFormFieldModule } from '@angular/material/form-field'
-import { FormBuilder, FormGroup, Validators } from '@angular/forms'
+import { FormBuilder, Validators, FormControl, FormGroup } from '@angular/forms'
+import { debounceTime } from 'rxjs/operators';
 
 
 @Component({
@@ -9,22 +9,48 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms'
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  pFiedType = 'password'
-  pIconTooltip = 'Mostrar Contraseña'
-  user: string
-  pass: string
-  constructor(private fb: FormBuilder,) {
-
-    this.user = 
-    this.pass = '1233445'
+  
+  form: FormGroup;
+  constructor(
+    private FormBuilder: FormBuilder
+  ) {
+    this.buildForm();
+  
    }
 
   ngOnInit(): void {
   
   }
 
-  login(){
-  console.log('hola')
-}
+  private buildForm() {
+    this.form = this.FormBuilder.group({
+      user: ['', [Validators.required]],
+      password: ['', [Validators.required, Validators.minLength(8),]],
+    });
+
+    this.form.valueChanges
+    .pipe(
+      debounceTime(600)
+    )
+    .subscribe(value => {
+      console.log(value);
+    });
+  }
+
+  login(event: Event){
+    event.preventDefault();
+    if(this.form.valid){
+      const value = this.form.value;
+      console.log(value);
+    }else{
+      this.form.markAllAsTouched();
+    }
+  }
+
+  get userField(){
+    return this.form.get('user');
+  }
+  get passwordField(){
+    return this.form.get('password');
+  }
   }

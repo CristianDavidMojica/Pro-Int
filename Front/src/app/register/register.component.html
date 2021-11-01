@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register</title>
+</head>
+<div class="body" autocomplete="nope">
+<body>
+    <div autocomplete="off">
+        <br>
+        <br>
+        <br>
+        <h1 class="register">Register</h1>
+        <form autocomplete="off" [formGroup]="form" novalidate (ngSubmit)="save($event)" >
+            <p>
+                <label>Name:</label> <br />
+                <input type="text" formControlName="name" placeholder="Your Name">
+            </p>
+            <div *ngIf="nameField.errors && nameField.touched">
+                <p *ngIf="nameField.hasError('required')">
+                    Campo Requerido
+                </p>
+            </div>
+            <p>
+                <label>Code:</label> <br />
+                <input type="number" formControlName="code" placeholder="Your Code">
+            </p>
+            <div *ngIf="codeField.errors && codeField.touched">
+                <p *ngIf="codeField.hasError('required')">
+                    Campo Requerido
+                </p>
+            </div>
+            <p>
+                <label>Password:</label> <br />
+                <input  type="password" formControlName="password" placeholder="********">
+            </p>
+            <div *ngIf="passwordField.errors && passwordField.touched">
+                <p *ngIf="passwordField.hasError('required')">
+                    Campo Requerido
+                </p>
+                <p *ngIf="passwordField.hasError('minlength')">
+                    Longitud minima de contraseña es de 8
+                </p>
+            </div>
+            <p>
+                <label>Date of birth:</label> <br />
+                <input type="date" formControlName="date">
+            </p>
+            <div *ngIf="dateField.errors && dateField.touched">
+                <p *ngIf="dateField.hasError('required')">
+                    Campo Requerido
+                </p>
+            </div>
+            <p>
+                <label>Email:</label> <br />
+                <input type="email" formControlName="email" placeholder="example@ucatolica.edu.co">
+            </p>
+            <div *ngIf="emailField.errors && emailField.touched">
+                <p *ngIf="emailField.hasError('required')">
+                    Campo Requerido
+                </p>
+                <p *ngIf="emailField.hasError('email')">
+                    Lo que dijitaste no es un email!!
+                </p>
+            </div>
+            <p>
+                <label>Description:</label> <br />
+                <br>
+                <textarea cols="30" rows="10" formControlName="text" placeholder="Example:Hi!, my name is Pepito, i am a seventh semester student "></textarea>
+                <small>{{ textField.value.length }}/200</small>
+            </p>
+            <div *ngIf="textField.errors && textField.touched">
+                <p *ngIf="textField.hasError('required')">
+                    Campo Requerido
+                </p>
+                <p *ngIf="textField.hasError('maxlength')">
+                    Te pasaste, máximo deben haber 200 caracteres.
+                </p>
+                <p *ngIf="textField.hasError('minlength')">
+                    La descripcion minima es de 50 letras.
+                </p>
+            </div>
+            <p>
+                <label>Category:</label> <br />
+                <br>
+                <select formControlName="category" >
+                    <option value="1">Student</option>
+                    <option value="2">Teacher</option>
+                    <option value="3">Jury</option>
+                </select>
+            </p>
+            <div *ngIf="categoryField.errors && categoryField.touched">
+                <p *ngIf="categoryField.hasError('required')">
+                    Campo Requerido
+                </p>
+            </div>
+            <p>
+                <label>Gender:</label> <br />
+                <br>
+                <select formControlName="gender">
+                    <option value="1">Male</option>
+                    <option value="2">Famale</option>
+                    <option value="3">Other</option>
+                </select>
+            </p>
+            <div *ngIf="genderField.errors && genderField.touched">
+                <p *ngIf="genderField.hasError('required')">
+                    Campo Requerido
+                </p>
+            </div>
+            <button  mat-raised-button type="submit">
+                Send
+            </button>
+            <br>
+            <br>
+            <br>
+        </form>
+    </div>
+</body>
+</div>
+</html>
