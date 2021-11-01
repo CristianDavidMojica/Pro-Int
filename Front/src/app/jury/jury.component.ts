@@ -6,8 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./jury.component.scss']
 })
 export class JuryComponent implements OnInit {
-
-  constructor() { }
+  constructor() { 
+      
+  }
 
   ngOnInit(): void {
   }
