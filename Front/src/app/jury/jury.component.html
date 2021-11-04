@@ -8,14 +8,91 @@
         <link rel="stylesheet" href="jury.component.scss">
     </head>
     <body>
-        <div>
-            <object data="test/Presentacion proyecto.pdf" type="application/pdf" width="300" height="200">    
-                <a href="test/Presentacion proyecto.pdf">presentacion.pdf</a>
-            </object>
-            <!-- <embed src="test/Presentacion proyecto.pdf" type="application/pdf"   height="300px" width="100%" class="responsive">
-            <a href="test/Presentacion proyecto.pdf">download</a> -->
-            <embed src="test/Presentacion proyecto.pdf" type="application/pdf"   height="700px" width="500">
-            <div class="plugin-pdf-pro" data-mode="normal" data-pdf-url="test/Presentacion proyecto.pdf" data-color="#EB6E00"></div>
+        <div class="contenedor">
+            <iframe src="https://docs.google.com/document/d/108MS54rQeDh77xbWo8lRL_ppMZVbsBeBjI4zlK6GtsU/edit?usp=sharing" style="width:1500px; height:1000px;" frameborder="0" ></iframe>
         </div>
-    </body>
+        <div class="contenedor">
+            <h1 class="register">Qualification</h1>
+            <form  [formGroup]="form" novalidate (ngSubmit)="save($event)">
+                <p>
+                    <label>Project Name:</label> <br />
+                    <input type="text" formControlName="nameProject" placeholder="Proyecto Integrador de Construccion de Software">
+                </p>
+                <div *ngIf="nameProjectField.errors && nameProjectField.touched">
+                    <p *ngIf="nameProjectField.hasError('required')">
+                        Campo Requerido
+                    </p>
+                </div>
+                <p>
+                    <label>Code:</label> <br />
+                    <input type="number" formControlName="codeGroup" placeholder="Student Code">
+                </p>
+                <div *ngIf="codeGroupField.errors && codeGroupField.touched">
+                    <p *ngIf="codeGroupField.hasError('required')">
+                        Campo Requerido
+                    </p>
+                </div>
+                <p>
+                    <label>Student:</label> <br />
+                    <br>
+                    <select formControlName="career">
+                        <option value="Cristian">Cristian Mojica</option>
+                        <option value="Sergio">Sergio Garzon</option>
+                    </select>
+                </p>
+                <div *ngIf="careerField.errors && careerField.touched">
+                    <p *ngIf="careerField.hasError('required')">
+                        Campo Requerido
+                    </p>
+                </div>
+                <p>
+                    <label>Date:</label> <br />
+                    <input type="date" formControlName="date">
+                </p>
+                <div *ngIf="dateField.errors && dateField.touched">
+                    <p *ngIf="dateField.hasError('required')">
+                        Campo Requerido
+                    </p>
+                </div>
+                <p>
+                    <label>Qualification:</label> <br />
+                    <input type="number" formControlName="codeStudent" placeholder="Qualification">
+                </p>
+                <div *ngIf="codeStudentField.errors && codeStudentField.touched">
+                    <p *ngIf="codeStudentField.hasError('required')">
+                        Campo Requerido
+                    </p>
+                </div>
+                <p>
+                    <label>Observations:</label> <br />
+                    <br>
+                    <textarea cols="30" rows="10" formControlName="text"
+                        placeholder="Example: This project is..."></textarea>
+                    <small>{{ textField.value.length }}/200</small>
+                </p>
+                <div *ngIf="textField.errors && textField.touched">
+                    <p *ngIf="textField.hasError('required')">
+                        Campo Requerido
+                    </p>
+                    <p *ngIf="textField.hasError('maxlength')">
+                        Te pasaste, máximo deben haber 200 caracteres.
+                    </p>
+                    <p *ngIf="textField.hasError('minlength')">
+                        La descripcion minima es de 50 letras.
+                    </p>
+                </div>
+                
+                <button mat-raised-button type="submit">
+                    Send
+                </button>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+                <br>
+            </form>
+        </div>
+</body>
 </html>
