@@ -16,7 +16,7 @@
          <div *ngIf="(userField.invalid && userField.touched)">
              <mat-hint *ngIf="userField.hasError('required')">Campo Requerido</mat-hint>
         </div>
-         <input class="inputs" type="text" placeholder="Password" formControlName = "password">
+         <input class="inputs" type="Password" placeholder="Password" formControlName = "password">
          <div *ngIf="(passwordField.invalid && passwordField.touched)">
             <mat-hint *ngIf="passwordField.hasError('required')">Campo Requerido</mat-hint>
         </div>    
